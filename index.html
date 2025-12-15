@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The PRIDE-CAT Rating Fortress</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>ChrishinnaCrooks</title> <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* --- FLAGRANT PRIDE FELINE THEME STYLES --- */
+        /* --- FLAGRANT PRIDE FELINE THEME STYLES (UNCHANGED) --- */
         :root {
             /* Pride Flag Colors */
             --pride-red: #FF0000;
@@ -18,14 +16,13 @@
             --pride-blue: #0000FF;
             --pride-violet: #8B00FF;
 
-            --primary-accent: var(--pride-violet); /* Primary color for border/buttons */
-            --glow-color: var(--pride-yellow); /* Brightest color for glow */
-            --loot-token: var(--pride-yellow); /* Token color */
-            --clean-bg: #1A0033; /* Dark, deep violet background */
+            --primary-accent: var(--pride-violet); 
+            --glow-color: var(--pride-yellow); 
+            --loot-token: var(--pride-yellow); 
+            --clean-bg: #1A0033; 
         }
 
         body {
-            /* Background: Subtle rainbow radial gradient */
             background: radial-gradient(circle at top, #330066, #000); 
             color: #fff;
             font-family: 'Jost', sans-serif;
@@ -40,8 +37,7 @@
             background: var(--clean-bg);
             padding: 30px;
             border-radius: 35px;
-            border: 5px solid var(--primary-accent); /* Violet Border */
-            /* Intense Rainbow Box Shadow */
+            border: 5px solid var(--primary-accent); 
             box-shadow: 
                 0 0 10px var(--pride-red), 
                 0 0 20px var(--pride-orange),
@@ -56,7 +52,7 @@
             font-family: 'Pacifico', cursive; /* Bubbly Font */
             text-align: center;
             font-size: 4em;
-            /* Title is a rainbow text gradient */
+            /* Rainbow text gradient */
             background: linear-gradient(to right, var(--pride-red), var(--pride-orange), var(--pride-yellow), var(--pride-green), var(--pride-blue), var(--pride-violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -76,7 +72,7 @@
         input, select, textarea {
             width: 100%;
             padding: 14px;
-            background: #00001A; /* Very dark blue */
+            background: #00001A; 
             border: 2px solid #5500AA;
             color: #fff;
             border-radius: 15px;
@@ -123,7 +119,7 @@
             animation: launch 0.5s;
         }
 
-        /* --- Catnip Prize Button Styling --- */
+        /* --- Glitter Prize Button Styling --- */
         .loot-claim-style {
             margin-top: 15px !important;
             padding: 15px;
@@ -159,7 +155,7 @@
             border-radius: 20px;
             background: #250044; 
             border: 3px solid var(--pride-blue);
-            box-shadow: 0 0 15px var(--pride-green); /* Green Shadow */
+            box-shadow: 0 0 15px var(--pride-green); 
         }
 
         .stars {
@@ -174,7 +170,7 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: var(--primary-accent); /* Violet Toggle */
+            background: var(--primary-accent); 
             color: #fff;
             display: flex;
             align-items: center;
@@ -185,7 +181,7 @@
             z-index: 100;
             transition: transform 0.3s;
         }
-        /* Rainbow Border Glow on Hover */
+
         .secret-toggle:hover {
             transform: scale(1.15) rotate(10deg);
             box-shadow: 0 0 5px var(--pride-red), 0 0 10px var(--pride-orange), 0 0 20px var(--pride-yellow);
@@ -343,7 +339,7 @@
         }
 
         .banked-token-icon {
-            color: var(--pride-red); /* Red for banked tokens */
+            color: var(--pride-red); 
             filter: drop-shadow(0 0 7px var(--pride-red));
         }
 
@@ -365,8 +361,7 @@
         }
 
         .sprite::before {
-            content: '🏳️‍🌈'; /* Rainbow Flag icon */
-            /* Text gradient applied to the sprite itself */
+            content: '🏳️‍🌈'; 
             background: linear-gradient(to right, var(--pride-red), var(--pride-orange), var(--pride-yellow), var(--pride-green), var(--pride-blue), var(--pride-violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -377,9 +372,7 @@
 <body>
     <div class="sprite"></div>
     <div class="container">
-        <h1>Flagrant Feline Funhouse</h1>
-        
-        <label>Whiskered Contributor</label>
+        <h1>ChrishinnaCrooks</h1> <label>Whiskered Contributor</label>
         <input id="name" placeholder="Fabulous Anon">
         
         <label>Feline Persona</label>
@@ -399,8 +392,7 @@
             <option value="5">5</option>
         </select>
         
-        <label>Cuddle Energy (CP)</label>
-        <select id="pp">
+        <label>PP Energy</label> <select id="pp">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -466,7 +458,7 @@
         const db = firebase.database();
         const ref = db.ref("ratings");
         
-        // --- CONFIGURATION CONSTANTS (SIMPLE, CAT PASSWORDS) ---
+        // --- CONFIGURATION CONSTANTS (SIMPLE, CAT PASSWORDS - UNCHANGED) ---
         const MODERATOR_PASSWORD = "Purr"; 
         const CLAIMANT_PASSWORD = "Meow"; 
         const PRIZE_BUNDLE_SIZE = 5; 
@@ -547,7 +539,6 @@
             if (action === 'remove') {
                 ref.orderByChild('token').equalTo(true).once('value', snapshot => {
                     let targetKey = null;
-                    // Find the oldest unclaimed token
                     snapshot.forEach(child => {
                         const r = child.val();
                         if (!r.claimed) {
@@ -644,7 +635,6 @@
                         return;
                     }
 
-                    // Update the claimed status of ALL available tokens
                     const updates = {};
                     for (let i = 0; i < tokensToClaim; i++) {
                         updates[unclaimedTokenKeys[i] + '/claimed'] = true;
@@ -654,7 +644,7 @@
                         lootStatus.textContent = `YAS! ${tokensToClaim} glitter prize(s) moved to The Fabulous Haul! 🌈`;
                         lootStatus.style.color = "var(--pride-green)"; 
                         claimantPass.value = '';
-                        potatoExplosion(); // Glitter Bomb Explosion!
+                        potatoExplosion(); 
                         document.getElementById('lootClaimBtn').style.display = 'none';
                         render(); 
                     }).catch(error => {
@@ -680,7 +670,7 @@
                 stars: s,
                 pp: parseInt(pp.value),
                 review: review.value,
-                token: s === 5, // Only 5-star ratings get a glitter prize
+                token: s === 5, 
                 claimed: s === 5 ? false : null,
                 time: Date.now()
             });
@@ -690,7 +680,7 @@
         };
 
         
-        // --- TOKEN VISUALS (Updated Icons/Text) ---
+        // --- TOKEN VISUALS (UNCHANGED) ---
         function updateTokenDisplay(unclaimedCount, claimedCount) {
             const individualPileElement = document.getElementById('individualTokenPile');
             const bundleDisplayElement = document.getElementById('bundleDisplay');
@@ -701,7 +691,7 @@
             const unclaimedReadyCount = unclaimedCount;
             const bankedCount = claimedCount;
             
-            // 1. PRIZE READY ALERT (Loot Toggle Pulse)
+            // 1. PRIZE READY ALERT 
             if (unclaimedReadyCount > 0 && !isClaimantLoggedIn) {
                 lootToggle.classList.add('prize-ready-pulse');
             } else {
@@ -709,7 +699,7 @@
             }
 
             
-            // 2. INDIVIDUAL TOKEN ACCUMULATION DISPLAY (Stacked Meter for Pulsing)
+            // 2. INDIVIDUAL TOKEN ACCUMULATION DISPLAY
             let meterHTML = `<div class="token-section"><h3>Unbanked Glitter Prize Accumulation</h3>`;
             meterHTML += `<div class="slot-meter">`;
             
@@ -717,7 +707,7 @@
                 const isFilled = (unclaimedCount > i);
                 const isPulsing = (unclaimedCount > 0 && i === unclaimedCount - 1) ? 'pulsing' : '';
                 
-                let iconHtml = '✨'; // Sparkle Icon
+                let iconHtml = '✨'; 
                 let colorClass = isFilled ? 'filled' : '';
                 
                 meterHTML += `<span class="coin-slot ${colorClass} ${isPulsing}">${iconHtml}</span>`;
@@ -752,14 +742,14 @@
         }
 
         
-        // --- RENDER FUNCTION (Updated Icons/Text) ---
+        // --- RENDER FUNCTION (UPDATED PP/CP TEXT) ---
         window.del = id => isAdmin && confirm("Delete? That's tragic!") && ref.child(id).remove();
         window.editRating = (id, r) => {
             if (!isAdmin) return;
             const n = prompt("Name:", r.name) || r.name;
             const c = prompt("Character:", r.character) || r.character;
             const s = parseInt(prompt("Stars:", r.stars)) || r.stars;
-            const p = parseInt(prompt("CP:", r.pp)) || r.pp;
+            const p = parseInt(prompt("PP:", r.pp)) || r.pp; // Reverted to PP
             const rev = prompt("Comment:", r.review) || r.review;
             ref.child(id).update({ name: n, character: c, stars: s, pp: p, review: rev });
         };
@@ -785,13 +775,11 @@
                     const d = document.createElement("div");
                     d.className = "rating";
                     
-                    // --- TOKEN DISPLAY LOGIC ---
                     let tokenIcon = '';
                     if (r.token && !r.claimed) {
                         tokenIcon = `<span class="token-icon-display" style="color: var(--pride-yellow);">✨</span>`;
                     }
 
-                    // Moderator buttons refer to glitter prizes
                     const tokenToggleBtn = r.token
                         ? `<button onclick="adminSetToken('${c.key}', false)"><i class="fas fa-minus-circle"></i> Remove Glitter</button>`
                         : `<button onclick="adminSetToken('${c.key}', true)"><i class="fas fa-plus-circle"></i> Add Glitter</button>`;
@@ -801,9 +789,7 @@
 
             <span class="stars">${"★".repeat(r.stars)}</span><br><br>
 
-            CP: ${r.pp}<br><br>
-
-            ${r.review||""}<br><br>
+            PP: ${r.pp}<br><br> ${r.review||""}<br><br>
 
             ${isAdmin?`<br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;"><br>
