@@ -2,24 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ChrishinnaCrooks</title>
+    <title>The PRIDE-CAT Rating Fortress</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Base Styles matching the image */
+        /* --- FLAGRANT PRIDE FELINE THEME STYLES --- */
         :root {
-            --primary-green: #00FF55; /* PRIMARY ACCENT COLOR (Viper Green) */
-            --border-glow: #00E080; /* GLOW COLOR (Soft Green) */
-            --dark-bg: rgba(0, 15, 0, 0.95); /* Dark Green-tinted */
-            --loot-token: #E0C000; /* TOKEN COLOR (Faded Gold/Loot) */
-            --clean-bg: #051505; /* CONTAINER BACKGROUND */
+            /* Pride Flag Colors */
+            --pride-red: #FF0000;
+            --pride-orange: #FF8C00;
+            --pride-yellow: #FFFF00;
+            --pride-green: #00FF00;
+            --pride-blue: #0000FF;
+            --pride-violet: #8B00FF;
+
+            --primary-accent: var(--pride-violet); /* Primary color for border/buttons */
+            --glow-color: var(--pride-yellow); /* Brightest color for glow */
+            --loot-token: var(--pride-yellow); /* Token color */
+            --clean-bg: #1A0033; /* Dark, deep violet background */
         }
 
         body {
-            background: radial-gradient(circle at top, #004d00, #000); /* Dark Green Radial Gradient */
-            color: #eee;
+            /* Background: Subtle rainbow radial gradient */
+            background: radial-gradient(circle at top, #330066, #000); 
+            color: #fff;
             font-family: 'Jost', sans-serif;
             padding: 20px;
             min-height: 150vh;
@@ -31,138 +39,156 @@
             margin: auto;
             background: var(--clean-bg);
             padding: 30px;
-            border-radius: 28px;
-            border: 4px solid var(--primary-green); /* Green Border */
-            box-shadow: 0 0 40px var(--border-glow), inset 0 0 10px rgba(0, 255, 85, 0.5); /* Green Glow */
+            border-radius: 35px;
+            border: 5px solid var(--primary-accent); /* Violet Border */
+            /* Intense Rainbow Box Shadow */
+            box-shadow: 
+                0 0 10px var(--pride-red), 
+                0 0 20px var(--pride-orange),
+                0 0 40px var(--pride-yellow), 
+                0 0 80px var(--pride-green),
+                inset 0 0 15px var(--pride-blue); 
             position: relative;
             z-index: 10;
         }
 
         h1 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Pacifico', cursive; /* Bubbly Font */
             text-align: center;
-            font-size: 3.5em;
-            color: var(--primary-green); /* Green Title */
-            text-shadow: 0 0 25px var(--border-glow);
+            font-size: 4em;
+            /* Title is a rainbow text gradient */
+            background: linear-gradient(to right, var(--pride-red), var(--pride-orange), var(--pride-yellow), var(--pride-green), var(--pride-blue), var(--pride-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 0, 0.7);
             margin-bottom: 30px;
+            padding-bottom: 10px;
         }
 
         label {
             margin-top: 10px;
             display: block;
-            color: #99ffaa; /* Light Green Label Text */
+            color: var(--pride-yellow); 
             font-weight: 600;
+            font-size: 1.1em;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 12px;
-            background: #101010;
-            border: 1px solid #333;
+            padding: 14px;
+            background: #00001A; /* Very dark blue */
+            border: 2px solid #5500AA;
             color: #fff;
-            border-radius: 10px;
+            border-radius: 15px;
             transition: all 0.3s;
             font-family: inherit;
         }
 
         input:focus, select:focus, textarea:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 5px var(--border-glow);
+            border-color: var(--pride-yellow);
+            box-shadow: 0 0 10px var(--pride-yellow);
         }
 
-        /* --- SAVE BUTTON ANIMATION KEYFRAMES --- */
-        @keyframes bounce {
+        /* --- SUBMIT BUTTON ANIMATION (Fabulous Launch) --- */
+        @keyframes launch {
             0%, 100%, 20%, 50%, 80% { transform: translateY(0); }
-            40% { transform: translateY(-5px); }
-            60% { transform: translateY(-2px); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         #saveBtn {
             margin-top: 25px;
-            padding: 18px;
+            padding: 20px;
             width: 100%;
             border: none;
-            border-radius: 10px;
-            background: linear-gradient(to top, #005c22, var(--primary-green)); /* Green Gradient */
-            font-size: 1.2em;
+            border-radius: 15px;
+            /* Rainbow Button Gradient */
+            background: linear-gradient(to right, var(--pride-red), var(--pride-orange), var(--pride-yellow), var(--pride-green), var(--pride-blue), var(--pride-violet));
+            font-size: 1.4em;
             font-weight: bold;
-            color: #fff;
+            color: #000; 
             cursor: pointer;
-            box-shadow: 0 5px #003311, 0 0 20px var(--border-glow);
+            box-shadow: 0 6px var(--pride-violet), 0 0 30px var(--pride-yellow);
             transition: all 0.1s;
         }
 
         #saveBtn:hover {
-            background: linear-gradient(to top, #00FF55, #55FF88);
+            opacity: 0.9;
+            transform: scale(1.01);
         }
 
         #saveBtn:active {
-            transform: translateY(5px);
-            box-shadow: 0 0 #003311, 0 0 10px var(--primary-green);
-            animation: bounce 0.5s;
+            transform: translateY(6px);
+            box-shadow: 0 0 var(--pride-violet), 0 0 15px var(--pride-yellow);
+            animation: launch 0.5s;
         }
 
-        /* --- Loot Claim Button Styling --- */
+        /* --- Catnip Prize Button Styling --- */
         .loot-claim-style {
             margin-top: 15px !important;
-            padding: 12px;
-            background: var(--loot-token) !important; /* Loot Token Color Accent */
+            padding: 15px;
+            background: var(--pride-yellow) !important; 
             color: #000 !important;
-            border-radius: 8px !important;
-            font-weight: 700 !important;
+            border-radius: 12px !important;
+            font-weight: 800 !important;
+            border: 2px solid var(--pride-violet) !important;
         }
 
-        /* --- Loot Prize Ready Alert Animation --- */
+        /* --- Prize Ready Alert Animation (Flashing Star) --- */
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(224, 192, 0, 0.7); transform: scale(1); }
-            70% { box-shadow: 0 0 0 15px rgba(224, 192, 0, 0); transform: scale(1.05); }
-            100% { box-shadow: 0 0 0 0 rgba(224, 192, 0, 0); transform: scale(1); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.7); transform: scale(1); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 255, 0, 0); transform: scale(1.1); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); transform: scale(1); }
         }
 
         .prize-ready-pulse {
             animation: pulse 1.5s infinite;
-            background: var(--loot-token) !important;
+            background: var(--pride-yellow) !important;
+            color: var(--pride-violet) !important;
         }
 
         #lootToggle {
             right: 90px;
-            background: var(--primary-green);
+            background: var(--pride-yellow);
+            color: #000;
         }
 
         .rating {
             margin-top: 25px;
-            padding: 20px;
-            border-radius: 10px;
-            background: #222;
-            border: 1px solid #444;
-            box-shadow: 0 0 8px rgba(0, 255, 85, .4); /* Green Shadow */
+            padding: 25px;
+            border-radius: 20px;
+            background: #250044; 
+            border: 3px solid var(--pride-blue);
+            box-shadow: 0 0 15px var(--pride-green); /* Green Shadow */
         }
 
         .stars {
-            color: gold;
-            font-size: 1.2em
+            color: var(--pride-yellow);
+            font-size: 1.4em
         }
 
         /* --- Toggles and Panels --- */
         .secret-toggle {
             position: fixed;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
+            bottom: 25px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: var(--primary-green); /* Green Toggle */
+            background: var(--primary-accent); /* Violet Toggle */
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6em;
+            font-size: 2em;
             cursor: pointer;
-            box-shadow: 0 0 25px var(--border-glow);
+            box-shadow: 0 0 30px var(--pride-yellow);
             z-index: 100;
-            transition: transform 0.2s;
+            transition: transform 0.3s;
         }
-
+        /* Rainbow Border Glow on Hover */
         .secret-toggle:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 0 5px var(--pride-red), 0 0 10px var(--pride-orange), 0 0 20px var(--pride-yellow);
         }
 
         #adminToggle {
@@ -171,16 +197,16 @@
 
         .panel {
             position: fixed;
-            bottom: 95px;
+            bottom: 105px;
             right: 20px;
             background: var(--clean-bg);
-            padding: 18px;
-            border-radius: 15px;
-            border: 2px solid var(--primary-green); /* Green Border */
+            padding: 20px;
+            border-radius: 25px;
+            border: 3px solid var(--primary-accent); 
             display: none;
-            width: 320px;
+            width: 350px;
             z-index: 99;
-            box-shadow: 0 0 15px var(--border-glow);
+            box-shadow: 0 0 20px var(--pride-yellow);
         }
 
         #lootPanel {
@@ -188,61 +214,61 @@
         }
 
         button {
-            margin-top: 10px;
-            padding: 10px;
+            margin-top: 12px;
+            padding: 12px;
             border: none;
-            border-radius: 18px;
-            background: var(--primary-green); /* Green Button */
+            border-radius: 20px;
+            background: var(--primary-accent); 
             font-weight: bold;
             cursor: pointer;
             display: block;
             width: 100%;
             color: #fff;
+            transition: background 0.2s;
         }
 
         .rating button {
-            margin-top: 5px;
-            background: #444;
-            color: #eee;
-            border: 1px solid var(--primary-green);
+            margin-top: 6px;
+            background: #5500AA;
+            color: #fff;
+            border: 1px solid var(--pride-yellow);
         }
 
         .rating button:hover {
-            background: var(--primary-green);
-            color: #000;
+            background: var(--primary-accent);
+            color: #fff;
         }
 
-        /* --- EXPLOSION ANIMATION (Loot Bag) --- */
+        /* --- EXPLOSION ANIMATION (Glitter Bomb / Disco Ball) --- */
         .potato-explosion {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 10em;
-            color: #ff9900;
             animation: explode 3s ease-out forwards;
         }
 
         .potato-explosion::before {
-            content: '💰'; /* Loot Bag icon */
+            content: '✨'; /* Sparkle/Glitter icon */
             animation: potato-jiggle 0.1s infinite;
-            text-shadow: 0 0 50px rgba(224, 192, 0, 0.8), 0 0 100px rgba(180, 150, 0, 0.5); /* Loot Glow */
+            text-shadow: 0 0 50px var(--pride-yellow), 0 0 100px var(--pride-orange); 
         }
 
         @keyframes explode {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(3); opacity: 0.8; }
-            100% { transform: scale(10); opacity: 0; }
+            0% { transform: scale(1); opacity: 1; color: var(--pride-violet); }
+            50% { transform: scale(3); opacity: 0.8; color: var(--pride-green); }
+            100% { transform: scale(10); opacity: 0; color: var(--pride-red); }
         }
 
         @keyframes potato-jiggle {
             0% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            50% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
             100% { transform: rotate(-0deg); }
         }
 
@@ -250,7 +276,7 @@
         #tokenDisplay {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid var(--primary-green); /* Green Divider */
+            border-top: 2px solid var(--primary-accent); 
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -260,21 +286,26 @@
 
         #individualTokenPile {
             font-size: 1.1em;
-            min-width: 250px;
+            min-width: 280px;
             text-align: center;
-            padding: 10px;
-            background: #002200;
-            border: 1px solid #444;
-            border-radius: 10px;
+            padding: 15px;
+            background: #250044;
+            border: 1px solid var(--pride-blue);
+            border-radius: 15px;
         }
 
         #bundleDisplay {
             font-size: 1.1em;
-            min-width: 250px;
-            padding: 10px;
-            background: #002200;
-            border: 1px solid #444;
-            border-radius: 10px;
+            min-width: 280px;
+            padding: 15px;
+            background: #250044;
+            border: 1px solid var(--pride-blue);
+            border-radius: 15px;
+        }
+        
+        #individualTokenPile h3, #bundleDisplay h3 {
+            color: var(--pride-yellow);
+            text-shadow: 0 0 8px var(--pride-yellow);
         }
 
         .token-section {
@@ -283,52 +314,40 @@
             margin-bottom: 10px;
         }
 
-        .token-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        /* Stacked Meter Styles (Restored for pulsing effect) */
-        @keyframes coinPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); box-shadow: 0 0 8px #00FF55; /* Green Glow */ }
-            100% { transform: scale(1); }
-        }
-
         .slot-meter {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
+            margin-top: 15px;
             min-height: 40px;
         }
 
         .coin-slot {
-            font-size: 2.2em;
+            font-size: 2.5em;
             color: #333;
             filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
         }
 
         .coin-slot.filled {
-            color: var(--primary-green); /* Green Token */
-            filter: drop-shadow(0 0 8px var(--primary-green));
+            color: var(--pride-yellow); 
+            filter: drop-shadow(0 0 10px var(--pride-yellow));
         }
 
         .coin-slot.pulsing {
-            animation: coinPulse 0.6s ease-out;
+            animation: coinPulse 0.7s ease-out;
         }
 
         .token-icon-display {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-left: 10px;
         }
 
         .banked-token-icon {
-            color: #E0C000; /* Loot Token Color for Banked */
-            filter: drop-shadow(0 0 5px #E0C000);
+            color: var(--pride-red); /* Red for banked tokens */
+            filter: drop-shadow(0 0 7px var(--pride-red));
         }
 
-        /* --- SPRITE ANIMATION (Masked Thief) --- */
+        /* --- SPRITE ANIMATION (Queer Icon/Rainbow) --- */
         @keyframes walk {
             0% { transform: translateX(0); }
             100% { transform: translateX(100vw); }
@@ -342,11 +361,15 @@
             animation: walk 18s linear infinite;
             z-index: 999;
             line-height: 0;
-            filter: drop-shadow(0 0 10px #00FF55); /* Green Glow effect */
+            filter: drop-shadow(0 0 15px var(--pride-red)); 
         }
 
         .sprite::before {
-            content: '🥷'; /* Masked Thief icon */
+            content: '🏳️‍🌈'; /* Rainbow Flag icon */
+            /* Text gradient applied to the sprite itself */
+            background: linear-gradient(to right, var(--pride-red), var(--pride-orange), var(--pride-yellow), var(--pride-green), var(--pride-blue), var(--pride-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
@@ -354,20 +377,20 @@
 <body>
     <div class="sprite"></div>
     <div class="container">
-        <h1>ChrishinnaCrooks</h1>
+        <h1>Flagrant Feline Funhouse</h1>
         
-        <label>Name</label>
-        <input id="name" placeholder="Anonymous Submitter">
+        <label>Whiskered Contributor</label>
+        <input id="name" placeholder="Fabulous Anon">
         
-        <label>Character</label>
+        <label>Feline Persona</label>
         <select id="character">
-            <option value="Pim">Pim</option>
-            <option value="Charlie">Charlie</option>
-            <option value="Glep">Glep</option>
-            <option value="Mr Boss">Mr Boss</option>
+            <option value="Tuxedo">Tuxedo</option>
+            <option value="Calico">Calico</option>
+            <option value="Siamese">Siamese</option>
+            <option value="Sphynx">Sphynx</option>
         </select>
         
-        <label>Stars</label>
+        <label>Paw-sitivity Rating</label>
         <select id="stars">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -376,7 +399,7 @@
             <option value="5">5</option>
         </select>
         
-        <label>PP Energy</label>
+        <label>Cuddle Energy (CP)</label>
         <select id="pp">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -390,10 +413,10 @@
             <option value="10">10</option>
         </select>
         
-        <label>Comment</label>
+        <label>Meow-ment (Comment)</label>
         <textarea id="review"></textarea>
         
-        <button id="saveBtn"><i class="fas fa-hand-lizard"></i> SUBMIT RATING</button>
+        <button id="saveBtn"><i class="fas fa-hand-sparkles"></i> SUBMIT MEOW-VIEW</button>
         
         <div id="list"></div>
         
@@ -403,28 +426,28 @@
         </div>
     </div>
     
-    <div id="adminToggle" class="secret-toggle">🔒</div>
-    <div id="lootToggle" class="secret-toggle">📦</div>
+    <div id="adminToggle" class="secret-toggle"><i class="fas fa-crown"></i></div>
+    <div id="lootToggle" class="secret-toggle"><i class="fas fa-star"></i></div>
     
     <div id="adminPanel" class="panel">
-        <label>Moderator Password</label>
+        <label>Admin Claw-de Password</label>
         <input type="password" id="adminPass">
-        <button id="adminLogin">Login</button>
+        <button id="adminLogin">Pounce to Login</button>
         <p id="adminStatus"></p>
         
-        <div id="adminTools" style="display:none; margin-top: 15px; border-top: 1px solid var(--primary-green); padding-top: 10px;">
-            <p style="color: #99ffaa; font-weight: bold; margin-bottom: 5px;">Loot Control</p>
-            <button onclick="adminToggleTokenStatus('add')"><i class="fas fa-plus"></i> Add New Loot Bag</button>
-            <button onclick="adminToggleTokenStatus('remove')"><i class="fas fa-minus"></i> Remove Oldest Loot Bag</button>
+        <div id="adminTools" style="display:none; margin-top: 15px; border-top: 1px solid var(--primary-accent); padding-top: 10px;">
+            <p style="color: var(--pride-yellow); font-weight: bold; margin-bottom: 5px;">Glitter Prize Control</p>
+            <button onclick="adminToggleTokenStatus('add')"><i class="fas fa-plus-circle"></i> Add New Glitter Bomb</button>
+            <button onclick="adminToggleTokenStatus('remove')"><i class="fas fa-minus-circle"></i> Remove Oldest Bomb</button>
         </div>
     </div>
     
     <div id="lootPanel" class="panel">
-        <label>Claimant Access Code</label>
+        <label>Feline Claimant Code</label>
         <input type="password" id="claimantPass">
-        <button id="lootClaimLogin">LOGIN / CHECK LOOT</button>
+        <button id="lootClaimLogin">CHECK / CLAIM GLITTER</button>
         
-        <button id="lootClaimBtn" class="loot-claim-style" style="display: none;">CLAIM AVAILABLE LOOT BAG(S)</button>
+        <button id="lootClaimBtn" class="loot-claim-style" style="display: none;">COLLECT AVAILABLE GLITTER PRIZE(S)</button>
         <p id="lootStatus"></p>
     </div>
     
@@ -432,7 +455,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     
     <script>
-        // --- FIREBASE CONFIGURATION (BASED ON YOUR SCREENSHOT) ---
+        // --- FIREBASE CONFIGURATION (UNCHANGED) ---
         firebase.initializeApp({
             apiKey: "AIzaSyC7srqV5cigcYZEdGIW5O8jl-LoA5nNECk", 
             authDomain: "chrishinnacrooks.firebaseapp.com",
@@ -443,15 +466,15 @@
         const db = firebase.database();
         const ref = db.ref("ratings");
         
-        // --- CONFIGURATION CONSTANTS (PASSWORDS) ---
-        const MODERATOR_PASSWORD = "MasterThief77";
-        const CLAIMANT_PASSWORD = "TheHeistIsOn";
+        // --- CONFIGURATION CONSTANTS (SIMPLE, CAT PASSWORDS) ---
+        const MODERATOR_PASSWORD = "Purr"; 
+        const CLAIMANT_PASSWORD = "Meow"; 
         const PRIZE_BUNDLE_SIZE = 5; 
         
         let isAdmin = false;
         let isClaimantLoggedIn = false;
         
-        // --- UTILITY FUNCTIONS ---
+        // --- UTILITY FUNCTIONS (GLITTER BOMB EXPLOSION) ---
         function potatoExplosion() {
             const f = document.createElement("div");
             f.className = "potato-explosion";
@@ -459,7 +482,7 @@
             setTimeout(() => f.remove(), 3000);
         }
         
-        // --- TOGGLE HANDLERS ---
+        // --- TOGGLE HANDLERS (UNCHANGED LOGIC) ---
         adminToggle.onclick = () => adminPanel.style.display = adminPanel.style.display === "block" ? "none" : "block";
         lootToggle.onclick = () => {
             lootToggle.classList.remove('prize-ready-pulse');
@@ -474,27 +497,27 @@
         adminLogin.onclick = () => {
             if (adminPass.value === MODERATOR_PASSWORD) {
                 isAdmin = true;
-                adminStatus.textContent = "Moderator Enabled";
-                adminStatus.style.color = "#00ff00";
+                adminStatus.textContent = "Admin Crown Achieved! 👑";
+                adminStatus.style.color = "var(--pride-yellow)"; 
                 adminTools.style.display = "block";
                 render();
                 adminPanel.style.display = "none";
             } else {
-                adminStatus.textContent = "Incorrect Password";
-                adminStatus.style.color = "#ff0000";
+                adminStatus.textContent = "Incorrect Fabulous Code. Keep Shining!";
+                adminStatus.style.color = "var(--pride-red)";
             }
         };
 
         
-        // --- MODERATOR LOOT CONTROL (Add/Remove Tokens) ---
+        // --- MODERATOR LOOT CONTROL (UNCHANGED LOGIC) ---
         window.adminSetToken = (id, status) => {
             if (!isAdmin) {
-                alert("You must be logged in as Moderator to modify loot bags.");
+                alert("You must be logged in as Admin Crown to modify glitter prizes.");
                 return;
             }
 
             const actionText = status ? 'ADD' : 'REMOVE';
-            if (!confirm(`Are you sure you want to ${actionText} loot bag status for this rating?`)) {
+            if (!confirm(`Are you sure you want to ${actionText} glitter prize status for this rating?`)) {
                 return;
             }
 
@@ -510,10 +533,10 @@
                 }
 
                 ref.child(id).update(updates).then(() => {
-                    alert(`Loot bag status successfully ${actionText}ed!`);
+                    alert(`Glitter prize status successfully ${actionText}ed!`);
                     render();
                 }).catch(error => {
-                    alert("Error updating loot bag status: " + error.message);
+                    alert("Error updating glitter prize status: " + error.message);
                 });
             });
         };
@@ -535,38 +558,38 @@
 
                     if (targetKey) {
                         ref.child(targetKey).update({ token: false, claimed: null, stars: 4 }).then(() => {
-                            alert("Oldest unclaimed loot bag removed and rating stars set to 4!");
+                            alert("Oldest unclaimed glitter prize removed and rating stars set to 4!");
                             render();
                         });
                     } else {
-                        alert("No unclaimed loot bags found to remove.");
+                        alert("No unclaimed glitter prizes found to remove.");
                     }
                 });
 
             } else if (action === 'add') {
                 ref.push({
-                    name: "MASTER THIEF ADDED LOOT",
-                    character: "Moderator",
+                    name: "ADMIN FABULOUS ADDED PRIZE",
+                    character: "Admin Crown",
                     stars: 5,
                     pp: 1,
-                    review: "Manually added loot bag by moderator.",
+                    review: "Manually added glitter prize by moderator.",
                     token: true,
                     claimed: false,
                     time: Date.now()
                 }).then(() => {
-                    alert("New unclaimed loot bag added!");
+                    alert("New unclaimed glitter prize added!");
                     render();
                 });
             }
         };
 
         
-        // --- CLAIMANT LOGIN / CHECK LOOT LOGIC ---
+        // --- CLAIMANT LOGIN / CHECK LOOT LOGIC (UNCHANGED LOGIC) ---
         document.getElementById('lootClaimLogin').onclick = () => {
             const password = claimantPass.value;
             if (password !== CLAIMANT_PASSWORD) {
-                lootStatus.textContent = "Incorrect Claimant Access Code.";
-                lootStatus.style.color = "#ff0000";
+                lootStatus.textContent = "Incorrect Claimant Fabulous Code.";
+                lootStatus.style.color = "var(--pride-red)";
                 document.getElementById('tokenDisplay').style.display = 'none';
                 isClaimantLoggedIn = false;
                 document.getElementById('lootClaimBtn').style.display = 'none';
@@ -588,21 +611,21 @@
 
                 if (unclaimedTokensCount > 0) {
                     document.getElementById('lootClaimBtn').style.display = 'block';
-                    document.getElementById('lootClaimBtn').textContent = `CLAIM ${unclaimedTokensCount} AVAILABLE LOOT BAG(S)`;
-                    lootStatus.textContent = `${unclaimedTokensCount} loot bag(s) ready to claim.`;
+                    document.getElementById('lootClaimBtn').textContent = `COLLECT ${unclaimedTokensCount} AVAILABLE GLITTER PRIZE(S)`;
+                    lootStatus.textContent = `${unclaimedTokensCount} glitter prize(s) ready to claim! Get that sparkle! ✨`;
                 } else {
                     document.getElementById('lootClaimBtn').style.display = 'none';
-                    lootStatus.textContent = `No new loot bags ready.`;
+                    lootStatus.textContent = `No new glitter prizes ready. Time for a dramatic pose.`;
                 }
-                lootStatus.style.color = "#99ffaa";
+                lootStatus.style.color = "var(--pride-yellow)"; 
             });
         };
 
         
-        // --- CLAIMANT CLAIM LOGIC ---
+        // --- CLAIMANT CLAIM LOGIC (UNCHANGED LOGIC) ---
         lootClaimBtn.onclick = () => {
-            lootStatus.textContent = "Processing claim...";
-            lootStatus.style.color = "#99ffaa";
+            lootStatus.textContent = "Pretending to care about the process...";
+            lootStatus.style.color = "var(--pride-yellow)";
             
             ref.orderByChild('token').equalTo(true).once('value', snapshot => {
                 const unclaimedTokenKeys = [];
@@ -616,8 +639,8 @@
                 
                 if (tokensToClaim > 0) {
                     
-                    if (!confirm(`Are you sure you want to bank ${tokensToClaim} loot bag(s)?`)) {
-                        lootStatus.textContent = "Claiming cancelled.";
+                    if (!confirm(`Are you sure you want to bank ${tokensToClaim} glitter prize(s)? That's fabulous!`)) {
+                        lootStatus.textContent = "Claiming cancelled. The drama!";
                         return;
                     }
 
@@ -628,27 +651,27 @@
                     }
 
                     db.ref('ratings').update(updates).then(() => {
-                        lootStatus.textContent = `SUCCESS! ${tokensToClaim} loot bag(s) moved to Banked Loot.`;
-                        lootStatus.style.color = "#00ff00";
+                        lootStatus.textContent = `YAS! ${tokensToClaim} glitter prize(s) moved to The Fabulous Haul! 🌈`;
+                        lootStatus.style.color = "var(--pride-green)"; 
                         claimantPass.value = '';
-                        potatoExplosion(); // Loot Bag Explosion!
+                        potatoExplosion(); // Glitter Bomb Explosion!
                         document.getElementById('lootClaimBtn').style.display = 'none';
                         render(); 
                     }).catch(error => {
-                        lootStatus.textContent = "Error claiming prize: " + error.message;
-                        lootStatus.style.color = "#ff0000";
+                        lootStatus.textContent = "Error claiming prize. Oh, the humanity! " + error.message;
+                        lootStatus.style.color = "var(--pride-red)";
                     });
 
                 } else {
-                    lootStatus.textContent = `No loot bags available to claim.`;
-                    lootStatus.style.color = "#ff0000";
+                    lootStatus.textContent = `No glitter prizes available to claim.`;
+                    lootStatus.style.color = "var(--pride-red)";
                     document.getElementById('lootClaimBtn').style.display = 'none';
                 }
             });
         };
 
         
-        // --- SAVE RATING LOGIC ---
+        // --- SAVE RATING LOGIC (UNCHANGED LOGIC) ---
         saveBtn.onclick = () => {
             const s = parseInt(stars.value);
             ref.push({
@@ -657,7 +680,7 @@
                 stars: s,
                 pp: parseInt(pp.value),
                 review: review.value,
-                token: s === 5, // Only 5-star ratings get a loot bag
+                token: s === 5, // Only 5-star ratings get a glitter prize
                 claimed: s === 5 ? false : null,
                 time: Date.now()
             });
@@ -667,7 +690,7 @@
         };
 
         
-        // --- TOKEN VISUALS ---
+        // --- TOKEN VISUALS (Updated Icons/Text) ---
         function updateTokenDisplay(unclaimedCount, claimedCount) {
             const individualPileElement = document.getElementById('individualTokenPile');
             const bundleDisplayElement = document.getElementById('bundleDisplay');
@@ -687,36 +710,36 @@
 
             
             // 2. INDIVIDUAL TOKEN ACCUMULATION DISPLAY (Stacked Meter for Pulsing)
-            let meterHTML = `<div class="token-section"><h3>Unbanked Loot Bag Accumulation</h3>`;
+            let meterHTML = `<div class="token-section"><h3>Unbanked Glitter Prize Accumulation</h3>`;
             meterHTML += `<div class="slot-meter">`;
             
             for (let i = 0; i < PRIZE_BUNDLE_SIZE; i++) {
                 const isFilled = (unclaimedCount > i);
                 const isPulsing = (unclaimedCount > 0 && i === unclaimedCount - 1) ? 'pulsing' : '';
                 
-                let iconHtml = '💰';
+                let iconHtml = '✨'; // Sparkle Icon
                 let colorClass = isFilled ? 'filled' : '';
                 
                 meterHTML += `<span class="coin-slot ${colorClass} ${isPulsing}">${iconHtml}</span>`;
             }
             meterHTML += `</div>`;
-            meterHTML += `<p>Total Unbanked: ${unclaimedReadyCount}</p>`;
+            meterHTML += `<p>Total Unbanked Prizes: ${unclaimedReadyCount}</p>`;
             meterHTML += `</div>`;
             individualPileElement.innerHTML = meterHTML;
 
             
             // 3. BANKED PRIZES DISPLAY
-            let bundlesHTML = '<div class="token-section"><h3>Banked Loot (The Haul)</h3>';
+            let bundlesHTML = '<div class="token-section"><h3>Banked Haul (The Fabulous Stash)</h3>';
             
             if (bankedCount === 0) {
-                bundlesHTML += `<p style="opacity: 0.7;">The vault is empty!</p>`;
+                bundlesHTML += `<p style="opacity: 0.7;">The runway is empty!</p>`;
             } else {
-                bundlesHTML += `<p style="font-size: 2.5em; margin: 10px 0; color: #E0C000;">${bankedCount} 💰</p>`;
+                bundlesHTML += `<p style="font-size: 2.5em; margin: 10px 0; color: var(--pride-red);">${bankedCount} ✨</p>`;
                 
                 let potatoDisplay = '';
                 const displayLimit = Math.min(bankedCount, 25);
                 for (let i = 0; i < displayLimit; i++) {
-                    potatoDisplay += `<span class="token-icon-display banked-token-icon">💰</span>`;
+                    potatoDisplay += `<span class="token-icon-display banked-token-icon">✨</span>`;
                 }
                 if (bankedCount > displayLimit) {
                     potatoDisplay += `<span style="font-size: 1.2em; opacity: 0.8;"> + ${bankedCount - displayLimit} more</span>`;
@@ -729,14 +752,14 @@
         }
 
         
-        // --- RENDER FUNCTION ---
-        window.del = id => isAdmin && confirm("Delete?") && ref.child(id).remove();
+        // --- RENDER FUNCTION (Updated Icons/Text) ---
+        window.del = id => isAdmin && confirm("Delete? That's tragic!") && ref.child(id).remove();
         window.editRating = (id, r) => {
             if (!isAdmin) return;
             const n = prompt("Name:", r.name) || r.name;
             const c = prompt("Character:", r.character) || r.character;
             const s = parseInt(prompt("Stars:", r.stars)) || r.stars;
-            const p = parseInt(prompt("PP:", r.pp)) || r.pp;
+            const p = parseInt(prompt("CP:", r.pp)) || r.pp;
             const rev = prompt("Comment:", r.review) || r.review;
             ref.child(id).update({ name: n, character: c, stars: s, pp: p, review: rev });
         };
@@ -765,29 +788,29 @@
                     // --- TOKEN DISPLAY LOGIC ---
                     let tokenIcon = '';
                     if (r.token && !r.claimed) {
-                        tokenIcon = `<span class="token-icon-display" style="color: #E0C000;">💰</span>`;
+                        tokenIcon = `<span class="token-icon-display" style="color: var(--pride-yellow);">✨</span>`;
                     }
 
-                    // Moderator buttons refer to loot bags
+                    // Moderator buttons refer to glitter prizes
                     const tokenToggleBtn = r.token
-                        ? `<button onclick="adminSetToken('${c.key}', false)"><i class="fas fa-minus"></i> Remove Loot</button>`
-                        : `<button onclick="adminSetToken('${c.key}', true)"><i class="fas fa-plus"></i> Add Loot</button>`;
+                        ? `<button onclick="adminSetToken('${c.key}', false)"><i class="fas fa-minus-circle"></i> Remove Glitter</button>`
+                        : `<button onclick="adminSetToken('${c.key}', true)"><i class="fas fa-plus-circle"></i> Add Glitter</button>`;
                     
                     d.innerHTML = `
             <b>${r.name}</b> (${r.character}) ${tokenIcon}<br><br>
 
             <span class="stars">${"★".repeat(r.stars)}</span><br><br>
 
-            PP: ${r.pp}<br><br>
+            CP: ${r.pp}<br><br>
 
             ${r.review||""}<br><br>
 
             ${isAdmin?`<br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;"><br>
-                <button onclick="editRating('${c.key}',${JSON.stringify(r).replace(/"/g,'&quot;')})">Edit Rating</button><br>
+                <button onclick="editRating('${c.key}',${JSON.stringify(r).replace(/"/g,'&quot;')})">Edit Fabulous Rating</button><br>
                 ${tokenToggleBtn}<br>
             </div><br>
-            <button onclick="del('${c.key}')" style="margin-top: 5px;">Delete Rating</button>`:""}
+            <button onclick="del('${c.key}')" style="margin-top: 5px;">Delete Meow-view</button>`:""}
         `;
                     list.prepend(d);
                 });
